@@ -2,10 +2,110 @@
 <html lang="en">
 <head>
     <title>Exercise 2</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .card .card-header {
+            font-size: 26px;
+            background-color: slategray;
+        }
+        .card .card-body {
+            font-size: 16px;
+        }
+        .card .card-body .form-group {
+            text-align: left;
+        }
+        .card .card-body .form-group .form-text {
+            font-size: 12px;
+            text-align: left;
+            font-weight: lighter;
+            color: red;
+        }
+        .card .card-body .form-group .form-check .form-check-input {
+            margin-left: 0;
+        }
+        .card .card-body button:hover {
+            background-color: red;
+        }
+        .card .card-footer {
+            font-size: 14px;
+            font-weight: lighter;
+            background-color: slategray;
+            color: white;
+        }
+        .table {
+            font-size: 14px;
+        }    
+    </style>
 </head>
 <body>
-    <center>
-        <h1>Kalkulator</h1>
-    </center>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card text-center">
+                    <div class="card-header">Kalkulator</div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label>Angka ke-1</label>
+                                <input class="form-control" id="angkaSatu">
+                                <small class="form-text">isi dengan angka ke-1</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="op">Operator</label>   
+                                <select class="form-control" id="op">
+                                    <option value="+">+</option>
+                                    <option value="-">-</option>
+                                    <option value="*">*</option>
+                                    <option value="/">/</option>
+                                </select>
+                                <small class="form-text">isi dengan jenis kelamin</small>
+                            </div>
+                            <div class="form-group">
+                                <label>Angka ke-2</label>
+                                <input class="form-control" id="angkaDua">
+                                <small class="form-text">isi dengan angka ke-2</small>
+                            </div>
+                            <button type="submit" class="btn btn-primary" onclick="kalkulator()" value="=">Submit</button>
+                        </form>             
+                    </div>
+                    <div class="card-footer">
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="hasil">
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function kalkulator() {
+            var input1 = parseFloat(document.getElementById("angkaSatu").value);
+            var input2 = parseFloat(document.getElementById("angkaDua").value);
+            var operator = document.getElementById("op").value;
+            var hasil = document.getElementById("hasil");
+            let total;
+
+            if(operator == "+"){
+                total = input1 + input2;
+            } else if(operator == "-"){
+                total = input1 - input2;
+            } else if(operator == "*"){
+                total = input1 * input2;
+            } else {
+                total = input1 / input2;
+            }
+            
+            hasil.value = total;
+
+        }
+        
+    </script>
 </body>
 </html>
+
